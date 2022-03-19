@@ -1,0 +1,18 @@
+subprojects {
+    group "com.vitaliibredun"
+
+    ext {
+        set('springCloudVersion', "2021.0.1")
+        set('commonsLang3Version', '3.11')
+        set('lombokVersion', '1.18.22')
+        set('junitJupiterVersion', '5.4.2')
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    configurations {
+        testAnnotationProcessor.extendsFrom(ann)
+    }
+}
