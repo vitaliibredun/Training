@@ -1,8 +1,8 @@
 public class Calculator {
 
     public void calc(String userInput) {
-        char operator;
-        int operatorIndex;
+        char operator = '?';
+        int operatorIndex = 0;
         int operatorCounter = 0;
         for (int i = 0; i < userInput.length(); i++) {
             char nextChar = userInput.charAt(i);
