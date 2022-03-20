@@ -1,49 +1,19 @@
 public class Calculator {
 
     public void calc(String userInput) {
+        char operator;
+        int operatorIndex;
         int operatorCounter = 0;
         for (int i = 0; i < userInput.length(); i++) {
             char nextChar = userInput.charAt(i);
             if (nextChar == '+' || nextChar == '-' || nextChar == '/' || nextChar == '*') {
                 operatorCounter++;
+                if (operatorCounter > 1) {
+                    throw new IllegalArgumentException("Несколько операторов не поддерживаются");
+                }
+                operator = nextChar;
+                operatorIndex = i;
             }
-        }
-
-        if (operatorCounter != 1) {
-            throw new IllegalArgumentException("Несколько операторов не поддерживаются");
-        }
-
-        char operator = '?';
-        int operatorIndex;
-        operatorIndex = userInput.indexOf('+');
-        if (operatorIndex != -1) {
-            operator = '+';
-        }
-
-        if (operator == '?') {
-            operatorIndex = userInput.indexOf('-');
-            if (operatorIndex != -1) {
-                operator = '-';
-            }
-        }
-
-        if (operator == '?') {
-            operatorIndex = userInput.indexOf('/');
-            if (operatorIndex != -1) {
-                operator = '/';
-            }
-        }
-
-        if (operator == '?') {
-            operatorIndex = userInput.indexOf('*');
-            if (operatorIndex != -1) {
-                operator = '*';
-                operatorCounter++;
-            }
-        }
-
-        if (operatorCounter != 1) {
-            throw new IllegalArgumentException("Криво. Пример: 6+1");
         }
 
         try {
