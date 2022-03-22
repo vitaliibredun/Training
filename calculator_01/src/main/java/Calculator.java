@@ -16,31 +16,27 @@ public class Calculator {
             }
         }
 
-        try {
-            String firstNumber = userInput.substring(0, operatorIndex);
-            String secondNumber = userInput.substring(operatorIndex + 1);
+        String firstNumber = userInput.substring(0, operatorIndex);
+        String secondNumber = userInput.substring(operatorIndex + 1);
 
-            int firstNum = parseNumber(firstNumber);
-            int secondNum = parseNumber(secondNumber);
+        int firstNum = parseNumber(firstNumber);
+        int secondNum = parseNumber(secondNumber);
 
-            switch (operator) {
-                case '+':
-                    System.out.println("Input: " + userInput + ". Result: " + (firstNum + secondNum));
-                    break;
-                case '-':
-                    System.out.println("Input: " + userInput + ". Result: " + (firstNum - secondNum));
-                    break;
-                case '/':
-                    System.out.println("Input: " + userInput + ". Result: " + (firstNum / secondNum));
-                    break;
-                case '*':
-                    System.out.println("Input: " + userInput + ". Result: " + (firstNum * secondNum));
-                    break;
-                default:
-                    throw new IllegalStateException("Unexpected value: " + operator);
-            }
-        } catch (NumberFormatException e) {
-            throw new RuntimeException("Что-то не так с цифорками: " + e.getMessage());
+        switch (operator) {
+            case '+':
+                System.out.println("Input: " + userInput + ". Result: " + (firstNum + secondNum));
+                break;
+            case '-':
+                System.out.println("Input: " + userInput + ". Result: " + (firstNum - secondNum));
+                break;
+            case '/':
+                System.out.println("Input: " + userInput + ". Result: " + (firstNum / secondNum));
+                break;
+            case '*':
+                System.out.println("Input: " + userInput + ". Result: " + (firstNum * secondNum));
+                break;
+            default:
+                throw new IllegalStateException("Что-то не так с математическим оператором: " + operator);
         }
     }
 
@@ -81,7 +77,7 @@ public class Calculator {
             case "X":
                 return 10;
             default:
-                throw new IllegalArgumentException("Значение [" + rome + "] не допустимо");
+                throw new NumberFormatException("Значение [" + rome + "] не допустимо");
         }
     }
 }
