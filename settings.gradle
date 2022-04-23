@@ -1,8 +1,6 @@
 rootProject.name = 'Training'
 
 include('test-001',
-        'test-002',
         'variables',
-        'calculator_01',
         'playground')
 
