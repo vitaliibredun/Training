@@ -12,9 +12,9 @@ public class OrderService {
     public Order create(Order order) {
         order.setId(idGenerator.generate());
         order.setStatus("new");
-        repo.save(order);
+        Order savedOrder = repo.save(order);
         System.out.printf("new order created: %s \n", order.toString());
-        return order;
+        return savedOrder;
     }
 
     public void confirm(Order order) {

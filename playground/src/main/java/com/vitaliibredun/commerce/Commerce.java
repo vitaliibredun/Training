@@ -19,7 +19,8 @@ public class Commerce {
         for (int i = 0; i < 100; i++) {
             executorService.submit(() -> {
                 try {
-                    Order order = service.create(new Order("+7" + RandomStringUtils.randomNumeric(10)));
+                    Order order = new Order("+7" + RandomStringUtils.randomNumeric(10));
+                    order = service.create(order);
                     TimeUnit.MILLISECONDS.sleep(1500);
                     service.confirm(order);
                 } catch (Exception ignored) {
